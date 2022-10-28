@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iJuII/K4KTUJW21l7IcbsNCl43DEATh4TjBhGCIPnxxAmkJCsGpvZvgLxxDEzhOqWwaNwIN8IzxQRBIApzI5Mw==",
+  "dgSpecHash": "38m8QcI3loP9uObZxwa7tl2yK0vHn0Gxl9rVXouUx25Z+ekJqi4TPy77FFTabYV4VQArj+evWIf30Dy0pDzYIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Diego\\Downloads\\proyectoLora\\zzzz\\dapper-aspnetcore-webapi-main\\dapper-aspnetcore-webapi-main\\DapperASPNetCore\\DapperASPNetCore\\DapperASPNetCore.csproj",
+  "projectFilePath": "D:\\GitHub_Projects\\CafeLora\\iot-email\\DapperASPNetCore\\DapperASPNetCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Diego\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Diego\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
