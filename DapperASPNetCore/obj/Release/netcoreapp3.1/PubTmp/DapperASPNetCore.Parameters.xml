@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="iot-notification" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Diego\\Downloads\\proyectoLora\\zzzz\\dapper-aspnetcore-webapi-main\\dapper-aspnetcore-webapi-main\\DapperASPNetCore\\DapperASPNetCore\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
