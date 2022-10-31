@@ -234,7 +234,7 @@ namespace DapperASPNetCore.Repository
 			var check = 1;
 
 			//Query que lee los ultimos valores registrados en las ultimas 3 horas, el horario esta en UTC
-			var query = "SELECT id, temperatura, tiempo FROM [dbo].[devicesync] WHERE tiempo BETWEEN DATEADD(HOUR, -1, GETUTCDATE()) AND GETUTCDATE()";
+			var query = "SELECT id, temperatura, tiempo FROM [dbo].[devicesync] WHERE tiempo BETWEEN DATEADD(HOUR, -100, GETUTCDATE()) AND GETUTCDATE()";
 
 			var query2 = "SELECT * FROM [dbo].[UltimaUmbralMaxTemperatura]";
 
@@ -247,10 +247,12 @@ namespace DapperASPNetCore.Repository
 				using (var connection = _context.CreateConnection())
 				{
 					var initTemp = await connection.QuerySingleOrDefaultAsync<InitIot>(query4,
-						new { 
-							tipo = "temperatura",
+						new
+						{
+							tipo = "ph",
 							correo = email
 						});
+
 					var umbralMaxTemp = await connection.QuerySingleOrDefaultAsync<UmbralMaxTemp>(query2);
 					var umbralMinTemp = await connection.QuerySingleOrDefaultAsync<UmbralMinTemp>(query3);
 
@@ -323,7 +325,7 @@ namespace DapperASPNetCore.Repository
 							DateTime dt = DateTime.Parse(x.Tiempo);
 							DateTime currentTime = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time"));
 
-							SendMail(email, 1, x.Humedad, currentTime.ToString("hh:mm tt"));
+							SendMail(email, 2, x.Humedad, currentTime.ToString("hh:mm tt"));
 						}
 					}
 					check = initHum.Switches;
@@ -355,7 +357,7 @@ namespace DapperASPNetCore.Repository
 			var check = 1;
 
 			//De tiempo actual a "n" horas atrás
-			var query = "SELECT id, ph, tiempo FROM [dbo].[devicesync] WHERE tiempo BETWEEN DATEADD(HOUR, -1, GETUTCDATE()) AND GETUTCDATE()";
+			var query = "SELECT id, ph, tiempo FROM [dbo].[devicesync] WHERE tiempo BETWEEN DATEADD(HOUR, -100, GETUTCDATE()) AND GETUTCDATE()";
 
 			var query2 = "SELECT * FROM [dbo].[UltimaUmbralMaxPh]";
 
@@ -384,8 +386,9 @@ namespace DapperASPNetCore.Repository
 						{
 							DateTime dt = DateTime.Parse(x.Tiempo);
 							DateTime currentTime = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time"));
+
 							SendMail(email, 3, x.Ph, currentTime.ToString("hh:mm tt"));
-						}
+						}	
 					}
 					check = initPh.Switches;
 					connection.Close();
