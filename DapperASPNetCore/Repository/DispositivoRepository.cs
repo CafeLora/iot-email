@@ -249,7 +249,7 @@ namespace DapperASPNetCore.Repository
 					var initTemp = await connection.QuerySingleOrDefaultAsync<InitIot>(query4,
 						new
 						{
-							tipo = "ph",
+							tipo = "temperatura",
 							correo = email
 						});
 
